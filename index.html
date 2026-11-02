@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#090d1d">
+  <title>Nexora — Personal AI workspace</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="theme-nexora">
+  <div id="loginScreen" class="login-screen">
+    <div class="login-glow"></div>
+    <section class="login-card">
+      <div class="brand-mark">N<span>✳</span></div>
+      <p class="eyebrow">YOUR PERSONAL WORKSPACE</p>
+      <h1>Welcome to <span>Nexora</span></h1>
+      <p class="login-copy">A workspace for ideas, projects, and AI conversations. Sign in to continue.</p>
+      <button id="googleLogin" class="auth-button google-button"><span class="google-g">G</span> Continue with Google</button>
+      <p id="authMessage" class="auth-message" role="status"></p>
+      <p class="fine-print">By continuing, you agree to use this workspace responsibly.</p>
+    </section>
+  </div>
+
+  <div id="appShell" class="app-shell hidden">
+    <aside class="sidebar" id="sidebar">
+      <a class="side-brand" href="#home"><span class="brand-mark small">N<span>✳</span></span><span>Nexora</span></a>
+      <div class="workspace-label">WORKSPACE</div>
+      <button class="side-link active" data-view="home"><span>◈</span> Overview</button>
+      <button class="side-link" data-view="assistant"><span>✧</span> AI Assistant</button>
+      <button class="side-link" data-view="projects"><span>▧</span> Projects</button>
+      <div class="sidebar-bottom">
+        <div class="user-card"><div class="avatar" id="userAvatar">N</div><div class="user-meta"><strong id="userName">Signed in</strong><small id="userEmail"></small></div></div>
+        <button id="signOut" class="side-link signout"><span>↪</span> Sign out</button>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Toggle sidebar">☰</button>
+        <div class="breadcrumbs"><span>Workspace</span><b>/</b><strong id="breadcrumbTitle">Overview</strong></div>
+        <div class="top-actions">
+          <span class="mode-caption">INTERFACE</span>
+          <div class="mode-switch" role="group" aria-label="Choose interface mode">
+            <button class="mode-button selected" data-mode="nexora">✦ Nexora</button>
+            <button class="mode-button" data-mode="lisa">▤ Lisa</button>
+          </div>
+        </div>
+      </header>
+
+      <div class="content-wrap">
+        <section class="view active" id="view-home">
+          <div class="welcome-row">
+            <div><p class="eyebrow">PERSONAL WORKSPACE</p><h1 id="welcomeTitle">Your space, <span>reimagined.</span></h1><p class="muted">A clear place to think, create, and explore.</p></div>
+            <div class="date-chip" id="todayDate"></div>
+          </div>
+          <div class="hero-panel"><div class="hero-orbit orbit-a"></div><div class="hero-orbit orbit-b"></div><div class="hero-panel-content"><span class="pill"><i></i> YOUR AI WORKSPACE</span><h2>Make room for<br><span>what's next.</span></h2><p>Switch between a modern AI workspace and a classic desktop-inspired environment.</p><button class="primary-button" data-go="assistant">Open AI assistant <span>↗</span></button></div><div class="hero-art"><div class="orb-core"></div><div class="orb-ring ring-one"></div><div class="orb-ring ring-two"></div></div></div>
+          <div class="section-heading"><div><p class="eyebrow">GET STARTED</p><h2>Your workspace</h2></div></div>
+          <div class="quick-grid"><button class="quick-card" data-go="assistant"><span class="quick-icon purple">✧</span><strong>Talk to AI</strong><small>Ask questions and explore ideas</small><span class="card-arrow">↗</span></button><button class="quick-card" data-go="projects"><span class="quick-icon blue">▧</span><strong>Projects</strong><small>Keep your work in one place</small><span class="card-arrow">↗</span></button><button class="quick-card" id="switchLisaCard"><span class="quick-icon amber">▤</span><strong>Try Lisa mode</strong><small>A classic desktop-inspired workspace</small><span class="card-arrow">↗</span></button></div>
+        </section>
+
+        <section class="view" id="view-assistant">
+          <div class="assistant-heading"><div><p class="eyebrow">NEXORA INTELLIGENCE</p><h1 id="assistantTitle">AI <span>Assistant</span></h1><p class="muted" id="assistantSubtitle">A helpful AI for thinking, creating, and learning.</p></div><button class="secondary-button" id="newChat">＋ New chat</button></div>
+          <div class="chat-layout"><div class="chat-main"><div id="chatMessages" class="chat-messages"><div class="welcome-message"><div class="assistant-avatar">✧</div><h2 id="chatWelcomeTitle">What would you like to explore?</h2><p id="chatWelcomeCopy">Ask a question, work through an idea, or start something new.</p><div class="suggestion-list" id="suggestions"><button>Help me plan a project</button><button>Explain a difficult concept</button><button>Give me creative ideas</button></div></div></div><form id="chatForm" class="chat-composer"><textarea id="chatInput" rows="1" maxlength="8000" placeholder="Message Nexora AI…" aria-label="Message the AI"></textarea><button type="submit" id="sendButton" aria-label="Send message">↑</button><div class="composer-foot">AI responses can be inaccurate. Check important information.</div></form></div><aside class="chat-side"><p class="eyebrow">ACTIVE MODE</p><div class="mode-info-card"><div class="mode-info-icon" id="modeInfoIcon">✦</div><h3 id="modeInfoTitle">Nexora</h3><p id="modeInfoCopy">A versatile assistant for everyday questions, planning, writing, and creative work.</p></div><div class="privacy-note"><span>◇</span><p>Your chat is sent to the configured AI provider through a protected server endpoint.</p></div></aside></div>
+        </section>
+
+        <section class="view" id="view-projects"><p class="eyebrow">YOUR WORK</p><h1>Projects <span>space.</span></h1><p class="muted">A starting point for the things you're building.</p><div class="empty-project"><div class="empty-icon">▧</div><h2>Your next idea starts here.</h2><p>Project management can be connected to a database in a future iteration.</p><button class="primary-button" data-go="assistant">Brainstorm with AI <span>↗</span></button></div></section>
+      </div>
+      <footer class="app-footer"><span> NEXORA <b>•</b> PERSONAL WORKSPACE</span><span id="footerMode">NEXORA MODE</span></footer>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="/api/config"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
